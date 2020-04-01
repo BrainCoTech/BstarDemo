@@ -2,18 +2,17 @@ package tech.brainco.bstardemo;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import io.reactivex.annotations.NonNull;
 import tech.brainco.bstardemo.databinding.ActivityConnectedDevicesBinding;
 import tech.brainco.bstardemo.databinding.ItemDevicesBinding;
 import tech.brainco.bstarsdk.core.BstarDevice;
