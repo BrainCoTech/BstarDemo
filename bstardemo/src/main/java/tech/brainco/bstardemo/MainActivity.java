@@ -31,7 +31,7 @@ import timber.log.Timber;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
     private List<String> macList = new ArrayList<>();
     private Set<Integer> checkList = new HashSet<>();
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.rv.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new RecyclerView.Adapter() {
+        mAdapter = new RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             @NonNull
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

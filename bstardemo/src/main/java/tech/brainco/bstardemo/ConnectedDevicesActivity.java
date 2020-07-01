@@ -23,8 +23,9 @@ import tech.brainco.bstarsdk.core.Completable;
 public class ConnectedDevicesActivity extends AppCompatActivity {
 
     public final static String KEY_DEVICES = "devices";
+    @SuppressWarnings("FieldCanBeLocal")
     private ActivityConnectedDevicesBinding binding;
-    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
     private List<BstarDevice> connectedDevices;
 
     @Override
@@ -39,7 +40,7 @@ public class ConnectedDevicesActivity extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
             }
         });
-        mAdapter = new RecyclerView.Adapter() {
+        mAdapter = new RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             @NonNull
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -57,7 +58,7 @@ public class ConnectedDevicesActivity extends AppCompatActivity {
                 BstarDevice device = connectedDevices.get(position);
                 device.setAttentionListener(result -> {
                     if (holder.getAdapterPosition() == position) {
-                        binding.tv2.setText("attention " + result);
+                        binding.tv2.setText("attention " + result + " sync contacted: " + device.getContacted());
                     }
                 });
                 binding.tv3.setText("contacted " + device.getContacted());
