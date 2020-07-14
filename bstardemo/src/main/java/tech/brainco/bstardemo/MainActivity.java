@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                         Timber.d("connect result %s", result);
                         dialog.dismiss();
                         Intent intent = new Intent(MainActivity.this, ConnectedDevicesActivity.class);
-                        intent.putStringArrayListExtra(ConnectedDevicesActivity.KEY_DEVICES, new ArrayList<>(result));
                         startActivity(intent);
                     }
 
@@ -100,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
+        });
+        binding.btnDevices.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ConnectedDevicesActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_search) {
             ProgressDialog dialog = new ProgressDialog(this);
             dialog.show();
-            BstarSDK.scanDevices(new Result<List<String>>() {
+            BstarSDK.scanDevices(3, new Result<List<String>>() {
                 @Override
                 public void onResult(List<String> result) {
                     macList.clear();

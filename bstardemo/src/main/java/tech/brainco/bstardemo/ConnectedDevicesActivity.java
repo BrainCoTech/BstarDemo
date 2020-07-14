@@ -22,7 +22,6 @@ import tech.brainco.bstarsdk.core.Completable;
 
 public class ConnectedDevicesActivity extends AppCompatActivity {
 
-    public final static String KEY_DEVICES = "devices";
     @SuppressWarnings("FieldCanBeLocal")
     private ActivityConnectedDevicesBinding binding;
     private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
