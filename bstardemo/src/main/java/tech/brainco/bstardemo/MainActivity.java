@@ -101,8 +101,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         binding.btnDevices.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ConnectedDevicesActivity.class);
-            startActivity(intent);
+            BstarSDK.getHubConfig(new Result<List<String>>() {
+                @Override
+                public void onResult(List<String> strings) {
+                    Intent intent = new Intent(MainActivity.this, ConnectedDevicesActivity.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onError(@NotNull Throwable throwable) {
+
+                }
+            });
         });
     }
 
